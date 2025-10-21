@@ -1,73 +1,141 @@
-# Welcome to your Lovable project
+# Quiz Master 🎯
 
-## Project info
+A dynamic, interactive quiz game built with React, TypeScript, and Tailwind CSS. Test your knowledge across various topics including Geography, Science, History, Mathematics, Technology, Literature, and more!
 
-**URL**: https://lovable.dev/projects/d4775071-a766-4a40-9395-1da22c9d3fc4
+## Features ✨
 
-## How can I edit this code?
+- **Dynamic Question Display**: One question at a time with smooth transitions
+- **Multiple Choice Answers**: 4 options per question with instant feedback
+- **Score Tracking**: Real-time score updates and progress indicator
+- **Visual Feedback**: Color-coded correct/incorrect answers
+- **Responsive Design**: Works seamlessly on desktop, tablet, and mobile devices
+- **Beautiful UI**: Bold, vibrant colors with smooth animations
+- **Share Results**: Share your score with friends
 
-There are several ways of editing your application.
+## How to Play 🎮
 
-**Use Lovable**
+1. Click **"Start Quiz"** on the welcome screen
+2. Read each question carefully
+3. Select your answer from the four options (A, B, C, D)
+4. Get instant feedback on your choice
+5. The next question appears automatically after a short delay
+6. View your final score and percentage at the end
+7. Click **"Play Again"** to restart the quiz
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/d4775071-a766-4a40-9395-1da22c9d3fc4) and start prompting.
+## Technologies Used 🛠️
 
-Changes made via Lovable will be committed automatically to this repo.
+- **React 18** - UI framework
+- **TypeScript** - Type safety
+- **Vite** - Build tool and dev server
+- **Tailwind CSS** - Styling
+- **shadcn/ui** - UI components
+- **Lucide React** - Icons
+- **Sonner** - Toast notifications
 
-**Use your preferred IDE**
+## Installation & Setup 💻
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+```bash
+# Clone the repository
+git clone <repository-url>
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+# Navigate to project directory
+cd quiz-master
 
-Follow these steps:
+# Install dependencies
+npm install
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
+# Start development server
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
+The app will be available at `http://localhost:8080`
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+## Project Structure 📁
 
-**Use GitHub Codespaces**
+```
+src/
+├── components/
+│   ├── Welcome.tsx          # Welcome/start screen
+│   ├── Quiz.tsx             # Main quiz game logic
+│   ├── QuestionCard.tsx     # Individual question display
+│   ├── ProgressBar.tsx      # Progress and score indicator
+│   └── Results.tsx          # Final results screen
+├── data/
+│   └── questions.ts         # Question bank
+├── pages/
+│   └── Index.tsx            # Main page with game state
+└── ...
+```
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+## Customization 🎨
 
-## What technologies are used for this project?
+### Adding New Questions
 
-This project is built with:
+Edit `src/data/questions.ts` to add new questions:
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+```typescript
+{
+  id: 11,
+  question: "Your question here?",
+  options: ["Option A", "Option B", "Option C", "Option D"],
+  correctAnswer: 0, // Index of correct answer (0-3)
+  category: "Category Name"
+}
+```
 
-## How can I deploy this project?
+### Changing Colors
 
-Simply open [Lovable](https://lovable.dev/projects/d4775071-a766-4a40-9395-1da22c9d3fc4) and click on Share -> Publish.
+The design system is defined in `src/index.css`. Modify CSS variables to change the color scheme:
 
-## Can I connect a custom domain to my Lovable project?
+```css
+:root {
+  --primary: 245 60% 55%;      /* Main theme color */
+  --success: 145 65% 45%;      /* Correct answers */
+  --destructive: 355 75% 55%;  /* Incorrect answers */
+  /* ... more colors */
+}
+```
 
-Yes, you can!
+## Future Enhancements 🚀
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+Potential features to add:
+- Timer for each question
+- Multiple quiz categories/difficulty levels
+- Leaderboard with high scores
+- User accounts and progress tracking
+- API integration for dynamic questions
+- Sound effects and music
+- Multiplayer mode
+- Question explanations
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+## Error Handling 🛡️
+
+The application includes:
+- TypeScript type safety to prevent runtime errors
+- Graceful handling of invalid data
+- Responsive error states
+- Toast notifications for user feedback
+
+## Contributing 🤝
+
+Contributions are welcome! Please follow these steps:
+
+1. Fork the repository
+2. Create a feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
+
+## License 📄
+
+This project is open source and available under the MIT License.
+
+## Acknowledgments 🙏
+
+- Built with [Lovable](https://lovable.dev)
+- UI components from [shadcn/ui](https://ui.shadcn.com)
+- Icons from [Lucide](https://lucide.dev)
+
+---
+
+Made with ❤️ using React and TypeScript

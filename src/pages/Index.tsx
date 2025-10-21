@@ -1,13 +1,43 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+import { useState } from "react";
+import Welcome from "@/components/Welcome";
+import Quiz from "@/components/Quiz";
+import Results from "@/components/Results";
+import { questions } from "@/data/questions";
+
+type GameState = "welcome" | "quiz" | "results";
 
 const Index = () => {
+  const [gameState, setGameState] = useState<GameState>("welcome");
+  const [finalScore, setFinalScore] = useState(0);
+
+  const handleStartQuiz = () => {
+    setGameState("quiz");
+  };
+
+  const handleQuizComplete = (score: number) => {
+    setFinalScore(score);
+    setGameState("results");
+  };
+
+  const handleRestart = () => {
+    setFinalScore(0);
+    setGameState("welcome");
+  };
+
   return (
-    <div className="flex min-h-screen items-center justify-center bg-background">
-      <div className="text-center">
-        <h1 className="mb-4 text-4xl font-bold">Welcome to Your Blank App</h1>
-        <p className="text-xl text-muted-foreground">Start building your amazing project here!</p>
-      </div>
-    </div>
+    <>
+      {gameState === "welcome" && <Welcome onStart={handleStartQuiz} />}
+      {gameState === "quiz" && (
+        <Quiz questions={questions} onComplete={handleQuizComplete} />
+      )}
+      {gameState === "results" && (
+        <Results 
+          score={finalScore} 
+          totalQuestions={questions.length} 
+          onRestart={handleRestart} 
+        />
+      )}
+    </>
   );
 };
 
